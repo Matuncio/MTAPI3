@@ -15,6 +15,8 @@ import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
+    private var productService: ProductService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -53,5 +55,18 @@ class MainActivity : AppCompatActivity() {
                 Log.e("MainActivity", "Error: ${t.message}")
             }
         })
+    }
+
+    fun obtenerListadoProductos (productos: List<Product>): String{
+        return if (productos.isNotEmpty()) {
+            productos.joinToString(separator = "\n") { producto ->
+                "ID: ${producto.id}, Nombre: ${producto.name}"
+            }
+        } else {
+            "No hay productos disponibles"
+        }
+    }
+    fun setProductService (productService: ProductService){
+        this.productService = productService
     }
 }

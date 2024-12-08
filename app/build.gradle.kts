@@ -47,6 +47,13 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
+    androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+
+    testImplementation("org.robolectric:robolectric:4.10")
+
 }
